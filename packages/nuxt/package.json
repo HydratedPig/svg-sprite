@@ -1,12 +1,19 @@
 {
   "name": "@svg-sprite/nuxt",
+  "type": "module",
   "version": "1.0.0",
   "description": "",
   "author": "",
   "license": "MIT",
   "keywords": [],
-  "main": "dist/module.mjs",
-  "types": "dist/module.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
