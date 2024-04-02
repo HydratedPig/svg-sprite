@@ -25,10 +25,5 @@
     "isolatedModules": true,
     "skipLibCheck": true
   },
-  "include": ["examples/**/*", "scripts/**/*", "packages/**/*"],
-  "ts-node": {
-    "swc": true,
-    "esm": true,
-    "experimentalSpecifierResolution": "node"
-  }
+  "include": ["examples/**/*", "scripts/**/*", "packages/**/*"]
 }

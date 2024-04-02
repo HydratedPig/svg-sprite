@@ -1,4 +1,4 @@
-#!/usr/bin/env npx ts-node
+#!/usr/bin/env npx ts-node -P ./tsconfig.tsnode.json
 import { cpus } from 'node:os'
 import * as path from 'node:path'
 import { existsSync } from 'node:fs'
@@ -27,7 +27,7 @@ async function build(target: string) {
       '-c',
       'rollup.pkg.config.ts',
       '--configPlugin',
-      'swc',
+      'swc3',
       '--environment',
       `TARGET:${target}`,
     ],

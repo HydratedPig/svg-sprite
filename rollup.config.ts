@@ -1,5 +1,5 @@
 import { defineConfig } from 'rollup'
-import swc from '@rollup/plugin-swc'
+import { swc } from 'rollup-plugin-swc3'
 
 export default defineConfig({
   input: {

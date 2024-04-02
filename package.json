@@ -17,7 +17,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "./scripts/build.ts",
-    "build-types": "rollup -c rollup.dts.config.ts --configPlugin swc",
+    "build-types": "rollup -c rollup.dts.config.ts --configPlugin swc3",
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix"
   },
@@ -26,7 +26,6 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.6.4",
-    "@rollup/plugin-swc": "^0.3.0",
     "@swc/cli": "^0.3.10",
     "@swc/core": "^1.4.2",
     "@types/lodash-es": "^4.17.12",
@@ -36,6 +35,7 @@
     "rimraf": "^5.0.5",
     "rollup": "^4.12.0",
     "rollup-plugin-dts": "^6.1.0",
+    "rollup-plugin-swc3": "^0.11.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
   }

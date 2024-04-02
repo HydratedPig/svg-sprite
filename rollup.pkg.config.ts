@@ -1,7 +1,7 @@
 import process from 'node:process'
 import { fileURLToPath } from 'node:url'
 import path from 'node:path'
-import swc from '@rollup/plugin-swc'
+import { swc } from 'rollup-plugin-swc3'
 import { defineConfig } from 'rollup'
 
 const target = process.env.TARGET
@@ -18,6 +18,7 @@ const resolve = p => path.resolve(packageDir, p)
 export default defineConfig({
   input: {
     index: resolve('src/index.ts'),
+    // utils: resolve('src/utils.ts'),
   },
   output: [
     {
@@ -32,6 +33,8 @@ export default defineConfig({
     },
   ],
   plugins: [
-    swc(),
+    swc({
+      include: [/\.(m|c)?[jt]sx?$/],
+    }),
   ],
 })
