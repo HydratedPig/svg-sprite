@@ -1,4 +1,4 @@
-#!/usr/bin/env npx ts-node -P ./tsconfig.tsnode.json
+#!/usr/bin/env pnpm ts-node -P ./tsconfig.tsnode.json
 import { cpus } from 'node:os'
 import * as path from 'node:path'
 import { existsSync } from 'node:fs'
