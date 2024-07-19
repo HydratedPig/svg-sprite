@@ -20,7 +20,7 @@
     "build-types": "rollup -c rollup.dts.config.ts --configPlugin swc3",
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix",
-    "pnpm:devPreinstall": "./scripts/preInstall.sh"
+    "pnpm:devPreinstall": "./scripts/preInstall.sh && pnpm audit --fix"
   },
   "dependencies": {
     "lodash-es": "^4.17.21"
@@ -39,5 +39,16 @@
     "rollup-plugin-swc3": "^0.11.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
+  },
+  "pnpm": {
+    "overrides": {
+      "braces@<3.0.3": ">=3.0.3",
+      "postcss@<7.0.36": ">=7.0.36",
+      "postcss@<8.4.31": ">=8.4.31",
+      "tar@<6.2.1": ">=6.2.1",
+      "undici@<5.28.4": ">=5.28.4",
+      "vite@>=5.1.0 <=5.1.6": ">=5.1.7",
+      "ws@>=8.0.0 <8.17.1": ">=8.17.1"
+    }
   }
 }
