@@ -8,9 +8,9 @@
       "DOM.Iterable"
     ],
     "useDefineForClassFields": true,
-    "module": "NodeNext",
+    "module": "ESNext",
     /* Bundler mode */
-    "moduleResolution": "NodeNext",
+    "moduleResolution": "Bundler",
     "resolveJsonModule": true,
     // "allowImportingTsExtensions": true,
     "strict": true,
@@ -28,8 +28,6 @@
     "skipLibCheck": true
   },
   "include": [
-    "examples/**/*",
-    "scripts/**/*",
-    "packages/**/*"
+    "src/**/*"
   ]
 }

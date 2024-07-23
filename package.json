@@ -13,8 +13,10 @@
     "nuxt",
     "vite"
   ],
-  "main": "dist/index.mjs",
-  "types": "dist/index.d.ts",
+  "engines": {
+    "node": ">=16",
+    "pnpm": ">=8"
+  },
   "scripts": {
     "build": "./scripts/build.ts",
     "build-types": "rollup -c rollup.dts.config.ts --configPlugin swc3",
