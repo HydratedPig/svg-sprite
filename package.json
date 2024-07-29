@@ -22,7 +22,8 @@
     "build-types": "rollup -c rollup.dts.config.ts --configPlugin swc3",
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix",
-    "pnpm:devPreinstall": "./scripts/preInstall.sh && pnpm audit --fix"
+    "pnpm:devPreinstall": "./scripts/preInstall.sh",
+    "prepare": "pnpm audit --fix"
   },
   "dependencies": {
     "lodash-es": "^4.17.21"

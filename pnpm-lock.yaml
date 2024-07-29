@@ -1,9 +1,5 @@
 lockfileVersion: '6.0'
 
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false
-
 overrides:
   braces@<3.0.3: '>=3.0.3'
   postcss@<7.0.36: '>=7.0.36'
@@ -72,19 +68,6 @@ importers:
       nuxt:
         specifier: ^3.12.4
         version: 3.12.4(@types/node@18.19.21)(eslint@8.57.0)(rollup@4.12.0)(typescript@5.3.3)(vite@5.3.4)
-
-  packages/private:
-    dependencies:
-      '@rollup/pluginutils':
-        specifier: ^5.1.0
-        version: 5.1.0(rollup@4.12.0)
-      lodash-es:
-        specifier: ^4.17.21
-        version: 4.17.21
-    devDependencies:
-      rollup:
-        specifier: ^4.12.0
-        version: 4.12.0
 
   packages/shared:
     dependencies:
@@ -1995,6 +1978,7 @@ packages:
     dependencies:
       is-glob: 4.0.3
       micromatch: 4.0.7
+      napi-wasm: 1.1.0
     dev: true
     bundledDependencies:
       - napi-wasm
@@ -3529,7 +3513,7 @@ packages:
     engines: {node: ^10 || ^12 || >=14}
     hasBin: true
     peerDependencies:
-      postcss: '>=8.4.31'
+      postcss: ^8.1.0
     dependencies:
       browserslist: 4.23.2
       caniuse-lite: 1.0.30001642
@@ -4084,7 +4068,7 @@ packages:
     resolution: {integrity: sha512-h70rUM+3PNFuaBDTLe8wF/cdWu+dOZmb7pJt8Z2sedYbAcQVQV/tEchueg3GWxwqS0cxtbxmaHEdkNACqcvsow==}
     engines: {node: ^14 || ^16 || >=18}
     peerDependencies:
-      postcss: '>=8.4.31'
+      postcss: ^8.0.9
     dependencies:
       postcss: 8.4.39
     dev: true
@@ -6814,6 +6798,10 @@ packages:
       - supports-color
     dev: false
 
+  /napi-wasm@1.1.0:
+    resolution: {integrity: sha512-lHwIAJbmLSjF9VDRm9GoVOy9AGp3aIvkjv+Kvz9h16QR3uSVYH78PNQUnT2U4X53mhlnV2M7wrhibQ3GHicDmg==}
+    dev: true
+
   /natural-compare-lite@1.4.0:
     resolution: {integrity: sha512-Tj+HTDSJJKaZnfiuw+iaF9skdPpTo2GtEly5JHnWV/hfv2Qj/9RKsGISQtLh2ox3l5EAGw487hnBee0sIJ6v2g==}
     dev: true
@@ -7770,7 +7758,7 @@ packages:
   /postcss-prefix-selector@1.16.0(postcss@8.4.39):
     resolution: {integrity: sha512-rdVMIi7Q4B0XbXqNUEI+Z4E+pueiu/CS5E6vRCQommzdQ/sgsS4dK42U7GX8oJR+TJOtT+Qv3GkNo6iijUMp3Q==}
     peerDependencies:
-      postcss: '>=8.4.31'
+      postcss: '>4 <9'
     dependencies:
       postcss: 8.4.39
     dev: false
@@ -9773,3 +9761,7 @@ packages:
       compress-commons: 6.0.2
       readable-stream: 4.5.2
     dev: true
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
