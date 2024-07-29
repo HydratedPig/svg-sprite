@@ -28,8 +28,6 @@
     "skipLibCheck": true
   },
   "include": [
-    "examples/**/*",
-    "scripts/**/*",
-    "packages/**/*"
+    "src/**/*"
   ]
 }

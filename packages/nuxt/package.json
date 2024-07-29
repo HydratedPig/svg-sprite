@@ -1,24 +1,31 @@
 {
   "name": "@svg-sprite/nuxt",
+  "type": "module",
   "version": "1.0.0",
   "description": "",
   "author": "",
   "license": "MIT",
   "keywords": [],
-  "main": "dist/module.mjs",
-  "types": "dist/module.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "peerDependencies": {
-    "nuxt": "^3.10.3"
+    "nuxt": "^3.12.4"
   },
   "dependencies": {
-    "@nuxt/kit": "^3.10.3"
+    "@nuxt/kit": "^3.12.4"
   },
   "devDependencies": {
     "h3": "^1.11.1",
-    "nitropack": "^2.9.1",
-    "nuxt": "^3.10.3"
+    "nitropack": "^2.9.7",
+    "nuxt": "^3.12.4"
   }
 }

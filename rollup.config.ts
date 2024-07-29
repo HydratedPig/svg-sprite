@@ -1,5 +1,5 @@
 import { defineConfig } from 'rollup'
-import esbuild from 'rollup-plugin-esbuild'
+import { swc } from 'rollup-plugin-swc3'
 
 export default defineConfig({
   input: {
@@ -18,8 +18,6 @@ export default defineConfig({
     },
   ],
   plugins: [
-    esbuild({
-      sourceMap: false,
-    }),
+    swc(),
   ],
 })
