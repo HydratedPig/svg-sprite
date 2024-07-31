@@ -12,21 +12,18 @@ export default class BaseSprite implements IDisposable {
 
   add(symbol: SpriteSymbol) {
     if (this.symbols.has(symbol.id)) {
-      // TODO error handler
-      return false
+      this.symbols.set(symbol.id, symbol)
+      console.warn('It may cause some chaos by duplicate declarer of symbolId.', symbol.id)
     }
     else {
       this.symbols.set(symbol.id, symbol)
-      return true
     }
   }
 
   delete(id: string) {
     if (this.symbols.has(id)) {
       this.symbols.delete(id)
-      return true
     }
-    return false
   }
 
   get(id: string) {
