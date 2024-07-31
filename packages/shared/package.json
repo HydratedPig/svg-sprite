@@ -17,6 +17,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "@iconify/tools": "^4.0.4",
     "svg-baker": "^1.7.0"
   }
 }
