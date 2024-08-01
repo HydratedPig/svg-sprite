@@ -1,7 +1,8 @@
-import { SVG, cleanupSVG, runSVGO } from '@iconify/tools'
+import { optimizeContent } from "./optimize"
 
 export default class SpriteCompiler {
-  private constructor() {
+  symbols = new Map()
+  private constructor(public svgo: boolean = true) {
 
   }
 
@@ -16,8 +17,6 @@ export default class SpriteCompiler {
 
   addSymbol(opt: { id: string, content: string, filePath: string }) {
     const { id, content, filePath } = opt
-    const svg = new SVG(content)
-    cleanupSVG(svg)
-    runSVGO(svg)
+    const optimized = optimizeContent(content, this.svgo)
   }
 }
