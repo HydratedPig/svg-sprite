@@ -23,7 +23,8 @@
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix",
     "pnpm:devPreinstall": "./scripts/preInstall.sh",
-    "prepare": "pnpm audit --fix"
+    "pnpm:fix": "pnpm audit --fix",
+    "prepare": ""
   },
   "dependencies": {
     "lodash-es": "^4.17.21"

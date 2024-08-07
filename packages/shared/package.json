@@ -1,9 +1,9 @@
 {
-  "name": "shared",
+  "name": "@svg-sprite/shared",
   "type": "module",
   "version": "1.0.0",
   "description": "",
-  "author": "",
+  "author": "HydratedPig",
   "license": "MIT",
   "keywords": [],
   "main": "./dist/index.cjs",
@@ -18,7 +18,6 @@
   },
   "dependencies": {
     "@iconify/tools": "^4.0.4",
-    "svg-baker": "^1.7.0",
-    "svgo": "^3.3.2"
+    "svg-baker": "^1.7.0"
   }
 }
