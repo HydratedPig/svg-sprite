@@ -1,0 +1,17 @@
+{
+  "name": "@svg-sprite/webpack-vue-loader",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "author": "HydratedPig",
+  "license": "ISC",
+  "keywords": [],
+  "main": "lib/loader.cjs",
+  "module": "lib/loader.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "webpack": "^5.93.0"
+  }
+}
