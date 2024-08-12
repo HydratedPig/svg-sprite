@@ -1,10 +1,15 @@
 import type SpriteSymbol from './symbol'
 import type { IDisposable } from './dispose'
 import type { SpriteConfig } from './types'
+import { SVG_SPRITE_ROOT, defaultAttrs } from './constant'
+import { attrs2Str } from './utils'
 
 export default class BaseSprite implements IDisposable {
   private symbols = new Map<string, SpriteSymbol>()
-  constructor(private config: SpriteConfig) { }
+  private id: string
+  constructor(private config: SpriteConfig) {
+    this.id = config.id || SVG_SPRITE_ROOT
+  }
 
   get size() {
     return this.symbols.size
@@ -35,8 +40,12 @@ export default class BaseSprite implements IDisposable {
   }
 
   toString(): string {
-    // TODO
-    return ''
+    const attrs = Object.assign({}, defaultAttrs, this.config.attrs)
+    const symbols: string[] = []
+    this.symbols.forEach((s) => {
+      symbols.push(s.toSymbolString())
+    })
+    return `<svg ${attrs2Str(attrs)} style="position:absolute;width:0;height:0" id="${this.id}">${symbols.join('')}</svg>`
   }
 
   valueOf() {
