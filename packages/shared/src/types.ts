@@ -1,5 +1,5 @@
 export interface SpriteConfig {
-  attrs: Record<string, string>
+  attrs?: Record<string, string>
   id?: string
 }
 

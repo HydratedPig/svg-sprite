@@ -2,7 +2,7 @@ import { defaultAttrs } from './constant'
 import type { ViewBox } from './types'
 import { attrs2Str } from './utils'
 
-export default class SpriteSymbol {
+export class SpriteSymbol {
   constructor(public id: string, public rawContent: string, public content: string, public body: string, public viewBox: ViewBox) {
 
   }

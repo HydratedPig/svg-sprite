@@ -6,10 +6,23 @@
   "author": "HydratedPig",
   "license": "ISC",
   "keywords": [],
-  "main": "lib/loader.cjs",
-  "module": "lib/loader.js",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./teleport.svg": {
+      "import": "./teleport.svg"
+    }
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@svg-sprite/shared": "workspace:^"
   },
   "devDependencies": {
     "webpack": "^5.93.0"

@@ -1,12 +1,12 @@
 import { optimizeContent } from './optimize'
-import BaseSprite from './sprite'
-import SpriteSymbol from './symbol'
+import { BaseSprite } from './sprite'
+import { SpriteSymbol } from './symbol'
 import type { SpriteConfig } from './types'
 
-export default class SpriteCompiler {
-  private sprite: BaseSprite
+export class SpriteCompiler {
+  #sprite: BaseSprite
   constructor(config: SpriteConfig) {
-    this.sprite = new BaseSprite(config)
+    this.#sprite = new BaseSprite(config)
   }
 
   static instance: SpriteCompiler
@@ -16,6 +16,10 @@ export default class SpriteCompiler {
       SpriteCompiler.instance = new SpriteCompiler(config)
     }
     return SpriteCompiler.instance
+  }
+
+  get sprite() {
+    return this.#sprite
   }
 
   addSymbol(opt: { id: string, content: string, filePath: string }) {
@@ -28,6 +32,10 @@ export default class SpriteCompiler {
     }
     const optimized = optimizeContent(content)
     const symbol = new SpriteSymbol(id, content, optimized.content, optimized.body, optimized.viewBox)
-    this.sprite.add(symbol)
+    this.#sprite.add(symbol)
+  }
+
+  toString() {
+    return this.#sprite.toString()
   }
 }

@@ -1,12 +1,12 @@
-import type SpriteSymbol from './symbol'
+import type { SpriteSymbol } from './symbol'
 import type { IDisposable } from './dispose'
 import type { SpriteConfig } from './types'
 import { SVG_SPRITE_ROOT, defaultAttrs } from './constant'
 import { attrs2Str } from './utils'
 
-export default class BaseSprite implements IDisposable {
+export class BaseSprite implements IDisposable {
   private symbols = new Map<string, SpriteSymbol>()
-  private id: string
+  id: string
   constructor(private config: SpriteConfig) {
     this.id = config.id || SVG_SPRITE_ROOT
   }
