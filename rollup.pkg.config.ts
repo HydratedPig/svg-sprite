@@ -4,6 +4,7 @@ import path from 'node:path'
 import { swc } from 'rollup-plugin-swc3'
 import { defineConfig } from 'rollup'
 import json from '@rollup/plugin-json'
+// import Starter from 'unplugin-starter/rollup'
 
 const target = process.env.TARGET
 const CONST_PKG = 'packages'
@@ -33,6 +34,7 @@ export default defineConfig({
       entryFileNames: '[name].mjs',
     },
   ],
+  external: [/.*/],
   plugins: [
     json(),
     swc({

@@ -6,3 +6,5 @@ export const defaultAttrs = {
 export const SVG_SPRITE_ROOT = '__SVG_SPRITE_ROOT__'
 
 export const HYPHENATE_RE = /\B([A-Z])/g;
+
+export const spritePath = ''

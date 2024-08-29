@@ -1,0 +1,22 @@
+{
+  "name": "@svg-sprite/vue",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "peerDependencies": {
+    "vue": "^3.4.38"
+  },
+  "dependencies": {
+    "@svg-sprite/shared": "workspace:^",
+    "unplugin": "^1.12.2"
+  },
+  "devDependencies": {
+    "vue": "^3.4.38"
+  }
+}
