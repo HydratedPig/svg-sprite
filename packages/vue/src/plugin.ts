@@ -1,25 +1,44 @@
-import type { UnpluginFactory } from 'unplugin'
+import { parse } from 'node:path'
 import { createUnplugin } from 'unplugin'
+import { createFilter } from '@rollup/pluginutils'
+import { SpriteCompiler, forceCamelCase2hyphenate, spriteFolderPath } from '@svg-sprite/shared'
 import type { ISvgSpriteVueOptions } from './type'
+import { getSvgTemp } from './constant'
 
-export const unplugin = /* #__PURE__ */ createUnplugin<ISvgSpriteVueOptions | undefined>((options) => {
-  const { resolver } = options || {}
+export function createSpriteFilter(options: ISvgSpriteVueOptions = {}) {
+  const { include = spriteFolderPath, exclude } = options
+  const filter = createFilter(include, exclude)
+  return filter
+}
+
+export const unplugin = createUnplugin<ISvgSpriteVueOptions | undefined>((options = {}) => {
+  const { sprite, getSourceId } = options
+  const filter = createSpriteFilter(options)
+  const spriteCompiler = SpriteCompiler.getInstance(sprite ?? {})
   return {
     name: '@svg-sprite/vue',
-    resolveId(id, importer) {
-      console.log(id, importer)
-      return null
-    },
     transformInclude(id) {
-      return resolver?.test(id)
+      return filter(id)
     },
-    transform(code) {
-      return code.replace(/<template>/, '<template><div>Injected</div>')
+    transform(code, id) {
+      const filename = parse(id).name
+      const sourceId = getSourceId?.(filename) ?? forceCamelCase2hyphenate(filename)
+      spriteCompiler.addSymbol({
+        id: sourceId,
+        content: code,
+        filePath: id,
+      })
+      const svgTemp = getSvgTemp(sourceId)
+      return svgTemp
     },
   }
 })
 
 export default unplugin
+
+export {
+  spriteFolderPath,
+}
 
 export const vitePlugin = unplugin.vite
 export const rollupPlugin = unplugin.rollup

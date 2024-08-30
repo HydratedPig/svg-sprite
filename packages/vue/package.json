@@ -5,7 +5,18 @@
   "author": "",
   "license": "ISC",
   "keywords": [],
-  "main": "index.js",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./teleport.svg": {
+      "import": "./teleport.svg"
+    }
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,6 +24,7 @@
     "vue": "^3.4.38"
   },
   "dependencies": {
+    "@rollup/pluginutils": "^5.1.0",
     "@svg-sprite/shared": "workspace:^",
     "unplugin": "^1.12.2"
   },

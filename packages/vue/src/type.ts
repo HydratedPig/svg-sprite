@@ -1,3 +1,9 @@
+import type { FilterPattern } from '@rollup/pluginutils'
+import type { SpriteConfig } from '@svg-sprite/shared/src/types'
+
 export interface ISvgSpriteVueOptions {
-  resolver?: RegExp
+  include?: FilterPattern
+  exclude?: FilterPattern
+  sprite?: SpriteConfig
+  getSourceId?: (id?: string) => string
 }

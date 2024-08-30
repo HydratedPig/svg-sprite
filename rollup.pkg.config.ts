@@ -34,7 +34,7 @@ export default defineConfig({
       entryFileNames: '[name].mjs',
     },
   ],
-  external: [/.*/],
+  // external: [/.*/],
   plugins: [
     json(),
     swc({

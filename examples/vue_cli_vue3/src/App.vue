@@ -1,20 +1,14 @@
-<template>
-  <Left :size="24"/>
-  <Right/>
-</template>
+<script setup>
+import Left from './assets/sprite/left.svg'
+import Right from './assets/sprite/right.svg'
 
-<script>
-import Left from './assets/left.svg'
-import Right from './assets/right.svg'
-console.log(Left, 'mmp', Right)
-export default {
-  name: 'App',
-  components: {
-    Left,
-    Right
-  }
-}
+console.log('leftSvg::', Left, 'rightSvg::', Right)
 </script>
+
+<template>
+  <Left :size="24" />
+  <Right />
+</template>
 
 <style>
 #app {

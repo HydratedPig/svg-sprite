@@ -1,15 +1,19 @@
+const { webpackPlugin, createSpriteFilter } = require('@svg-sprite/vue')
 const { defineConfig } = require('@vue/cli-service')
+
+const svgSpriteOptions = {
+}
 
 module.exports = defineConfig({
   transpileDependencies: true,
+  configureWebpack: {
+    plugins: [
+      webpackPlugin(svgSpriteOptions),
+    ],
+  },
   chainWebpack: (config) => {
     const svgRule = config.module.rule('svg')
-
-    // 清除已有的所有 loader。
-    // 如果你不这样做，接下来的 loader 会附加在该规则现有的 loader 之后。
-    svgRule.uses.clear()
-
-    config.module.rule('svg2')
-      .test(/\.(svg)(\?.*)?$/).use('@svg-sprite/webpack-vue-loader').loader('@svg-sprite/webpack-vue-loader')
+    const filter = createSpriteFilter(svgSpriteOptions)
+    svgRule.exclude.add(filter)
   },
 })
