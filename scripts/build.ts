@@ -1,7 +1,7 @@
 #!/usr/bin/env pnpm tsx
 import { cpus } from 'node:os'
 import * as path from 'node:path'
-import { existsSync } from 'node:fs'
+import { existsSync, readdirSync } from 'node:fs'
 import { rimrafSync } from 'rimraf'
 import { execa } from 'execa'
 import { chunk } from 'lodash-es'
@@ -21,7 +21,7 @@ async function build(target: string) {
   const distDir = path.resolve(pkgDir, 'dist')
   if (existsSync(distDir))
     rimrafSync(distDir)
-  await execa(
+  const { stdout } = await execa(
     'rollup',
     [
       '-c',
@@ -32,4 +32,5 @@ async function build(target: string) {
       `TARGET:${target}`,
     ],
   )
+  console.log(stdout)
 }

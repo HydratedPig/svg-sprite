@@ -1,7 +1,9 @@
 import process from 'node:process'
 import { fileURLToPath } from 'node:url'
 import path from 'node:path'
+import { existsSync, readdirSync, statSync } from 'node:fs'
 import { swc } from 'rollup-plugin-swc3'
+import type { OutputOptions, RollupOptions } from 'rollup'
 import { defineConfig } from 'rollup'
 import json from '@rollup/plugin-json'
 // import Starter from 'unplugin-starter/rollup'
@@ -17,28 +19,53 @@ const packagesDir = path.resolve(__dirname, CONST_PKG)
 const packageDir = path.resolve(packagesDir, target)
 const resolve = p => path.resolve(packageDir, p)
 
-export default defineConfig({
-  input: {
-    index: resolve('src/index.ts'),
-    // utils: resolve('src/utils.ts'),
-  },
-  output: [
+const runtimeDir = resolve('src/runtime')
+
+const plugins = [
+  json(),
+  swc({
+    include: [/\.(m|c)?[jt]sx?$/],
+  }),
+]
+
+function getFilesByDir(dir: string) {
+  return (existsSync(dir) ? readdirSync(dir, { recursive: true }) : []).map((i) => {
+    const p = `${dir}/${i}`
+    const stats = statSync(p)
+    return {
+      path: p,
+      stats,
+    }
+  }).filter(i => i.stats.isFile())
+}
+
+function getDistDir(dir: string = 'dist'): OutputOptions[] {
+  return [
     {
-      dir: resolve('dist'),
+      dir: resolve(dir),
       format: 'cjs',
       entryFileNames: '[name].cjs',
     },
     {
-      dir: resolve('dist'),
+      dir: resolve(dir),
       format: 'es',
       entryFileNames: '[name].mjs',
     },
-  ],
-  // external: [/.*/],
-  plugins: [
-    json(),
-    swc({
-      include: [/\.(m|c)?[jt]sx?$/],
-    }),
-  ],
-})
+  ]
+}
+
+export default defineConfig([
+  {
+    input: resolve('src/index.ts'),
+    output: getDistDir(),
+    plugins,
+  },
+  ...getFilesByDir(runtimeDir).map((i) => {
+    return {
+      input: i.path,
+      output: getDistDir('dist/runtime'),
+      external: [/.*/],
+      plugins,
+    } as RollupOptions
+  }),
+])

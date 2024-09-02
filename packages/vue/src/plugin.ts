@@ -1,9 +1,9 @@
 import { parse } from 'node:path'
 import { createUnplugin } from 'unplugin'
 import { createFilter } from '@rollup/pluginutils'
-import { SpriteCompiler, forceCamelCase2hyphenate, spriteFolderPath } from '@svg-sprite/core'
+import { SpriteCompiler, VirtualFilename, VirtualPrefix, forceCamelCase2hyphenate, spriteFolderPath } from '@svg-sprite/core'
 import type { ISvgSpriteVueOptions } from './type'
-import { VirtualFilename, VirtualPrefix, getSvgTemp, getTeleportTemp } from './constant'
+import { getSvgTemp, getTeleportTemp } from './constant'
 
 export function createSpriteFilter(options: ISvgSpriteVueOptions = {}) {
   const { include = spriteFolderPath, exclude } = options

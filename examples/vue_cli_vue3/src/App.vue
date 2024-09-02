@@ -1,4 +1,5 @@
 <script setup>
+import SvgSpriteContainer from '@svg-sprite/vue/dist/runtime/SvgSpriteContainer.mjs'
 import Left from './assets/sprite/left.svg'
 import Right from './assets/sprite/right.svg'
 
@@ -6,6 +7,7 @@ console.log('leftSvg::', Left, 'rightSvg::', Right)
 </script>
 
 <template>
+  <SvgSpriteContainer />
   <Left :size="24" />
   <Right />
 </template>

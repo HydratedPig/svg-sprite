@@ -1,13 +1,12 @@
 import type { BaseSprite } from '@svg-sprite/core'
+import { VirtualFilename } from '@svg-sprite/core'
 import packageJson from '../package.json'
 
 export const packageName = packageJson.name
-export const VirtualPrefix = '\0virtual:'
-export const VirtualFilename = '@svg-sprite/vue/resolver'
 export function getSvgTemp(id: string) {
   return `
 import { defineComponent, h, getCurrentInstance } from 'vue';
-import { useSvgSpriteCreator } from '${VirtualFilename}'
+import '${VirtualFilename}'
 
 export default defineComponent({
   name: 'svg-sprite-${id}',
@@ -23,8 +22,6 @@ export default defineComponent({
     }
   },
   setup(props, { attrs }) {
-    const instance = getCurrentInstance();
-    useSvgSpriteCreator(instance.appContext)
     return () => {
       return h(
         'svg', 
@@ -43,18 +40,7 @@ export default defineComponent({
 
 export function getTeleportTemp(sprite: BaseSprite) {
   return `
-import { defineComponent, h, Teleport, render } from 'vue';
-let svgSprite = undefined
-export function useSvgSpriteCreator(context) {
-  if (!svgSprite) {
-    svgSprite = h(
-      Teleport,
-      {
-        to: 'body',
-      },
-      h('div', { innerHTML: '${sprite.toString()}' })
-    )
-  }
-}
-  `
+import { setVirtualSvgSprite } from '@svg-sprite/vue/runtime/useApi.mjs';
+!getVirtualSvgSprite() && setVirtualSvgSprite(${sprite.toString()});
+`
 }
