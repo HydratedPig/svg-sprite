@@ -1,4 +1,4 @@
-import type { BaseSprite } from '@svg-sprite/shared'
+import type { BaseSprite } from '@svg-sprite/core'
 import packageJson from '../package.json'
 
 export const packageName = packageJson.name

@@ -1,5 +1,5 @@
 import type { FilterPattern } from '@rollup/pluginutils'
-import type { SpriteConfig } from '@svg-sprite/shared/src/types'
+import type { SpriteConfig } from '@svg-sprite/core/src/types'
 
 export interface ISvgSpriteVueOptions {
   include?: FilterPattern

@@ -1,6 +1,6 @@
 import { parse } from 'node:path'
 import type { LoaderContext } from 'webpack'
-import { SpriteCompiler, forceCamelCase2hyphenate } from '@svg-sprite/shared'
+import { SpriteCompiler, forceCamelCase2hyphenate } from '@svg-sprite/core'
 import { getSvgTemp, getTeleportTemp, teleportSvg } from './constant'
 
 export function loader(this: LoaderContext<Record<string, any>>, content: string) {

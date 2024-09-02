@@ -10,9 +10,6 @@
       "types": "./src/index.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
-    },
-    "./teleport.svg": {
-      "import": "./teleport.svg"
     }
   },
   "main": "dist/index.cjs",
@@ -25,7 +22,7 @@
   },
   "dependencies": {
     "@rollup/pluginutils": "^5.1.0",
-    "@svg-sprite/shared": "workspace:^",
+    "@svg-sprite/core": "workspace:^",
     "unplugin": "^1.12.2"
   },
   "devDependencies": {

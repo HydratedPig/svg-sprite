@@ -8,3 +8,6 @@ export const SVG_SPRITE_ROOT = '__SVG_SPRITE_ROOT__'
 export const HYPHENATE_RE = /\B([A-Z])/g
 
 export const spriteFolderPath = '**/*/sprite/**/*.svg'
+
+export const VirtualPrefix = '\0virtual:'
+export const VirtualFilename = '@svg-sprite/core/resolver'
