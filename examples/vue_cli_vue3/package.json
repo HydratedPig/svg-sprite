@@ -17,6 +17,7 @@
     "@babel/eslint-parser": "^7.12.16",
     "@svg-sprite/vue": "workspace:^",
     "@svg-sprite/webpack-vue-loader": "workspace:^",
+    "@types/webpack-env": "^1.18.5",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
     "@vue/cli-plugin-babel": "~5.0.0",

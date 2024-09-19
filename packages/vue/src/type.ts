@@ -5,5 +5,5 @@ export interface ISvgSpriteVueOptions {
   include?: FilterPattern
   exclude?: FilterPattern
   sprite?: SpriteConfig
-  getSourceId?: (id?: string) => string
+  getSourceId?: (id?: string, filePath?: string) => string
 }

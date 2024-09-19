@@ -40,7 +40,7 @@ export default defineComponent({
 
 export function getTeleportTemp(sprite: BaseSprite) {
   return `
-import { setVirtualSvgSprite } from '@svg-sprite/vue/runtime/useApi.mjs';
-!getVirtualSvgSprite() && setVirtualSvgSprite(${sprite.toString()});
+import { setVirtualSvgSprite, getVirtualSvgSprite } from '@svg-sprite/vue/runtime/useApi';
+!getVirtualSvgSprite() && setVirtualSvgSprite('${sprite.toString()}');
 `
 }

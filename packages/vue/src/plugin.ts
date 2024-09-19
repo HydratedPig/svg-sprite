@@ -41,7 +41,7 @@ export const unplugin = createUnplugin<ISvgSpriteVueOptions | undefined>((option
     },
     transform(code, id) {
       const filename = parse(id).name
-      const sourceId = getSourceId?.(filename) ?? forceCamelCase2hyphenate(filename)
+      const sourceId = getSourceId?.(filename, id) ?? spriteCompiler.pretreatId(forceCamelCase2hyphenate(filename), id)
       spriteCompiler.addSymbol({
         id: sourceId,
         content: code,

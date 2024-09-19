@@ -11,10 +11,10 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
     },
-    "./runtime/**/*": {
-      "types": "./src/runtime/**/*",
-      "import": "./dist/runtime/**/*",
-      "require": "./dist/runtime/**/*"
+    "./runtime/*": {
+      "types": "./src/runtime/*.ts",
+      "import": "./dist/runtime/*.mjs",
+      "require": "./dist/runtime/*.cjs"
     }
   },
   "main": "dist/index.cjs",

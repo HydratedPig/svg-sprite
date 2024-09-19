@@ -1,4 +1,4 @@
-import { defineComponent, h } from 'vue'
+import { Teleport, defineComponent, h } from 'vue'
 import { useVirtualSvgSprite } from './useApi'
 
 export default defineComponent({
@@ -6,7 +6,9 @@ export default defineComponent({
   setup() {
     const { sprite } = useVirtualSvgSprite()
     return () => {
-      return h('div', { innerHTML: sprite.value })
+      return h(Teleport, {
+        to: 'body',
+      }, h('div', { innerHTML: sprite.value }))
     }
   },
 })
