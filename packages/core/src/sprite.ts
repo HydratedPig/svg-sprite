@@ -1,10 +1,9 @@
 import type { SpriteSymbol } from './symbol'
-import type { IDisposable } from './dispose'
 import type { SpriteConfig } from './types'
 import { SVG_SPRITE_ROOT, defaultAttrs } from './constant'
 import { attrs2Str } from './utils'
 
-export class BaseSprite implements IDisposable {
+export class BaseSprite {
   private symbols = new Map<string, SpriteSymbol>()
   id: string
   constructor(private config: SpriteConfig) {
@@ -50,9 +49,5 @@ export class BaseSprite implements IDisposable {
 
   valueOf() {
     return this.toString()
-  }
-
-  dispose() {
-    this.symbols.clear()
   }
 }
