@@ -1,13 +1,23 @@
 #!/usr/bin/env pnpm tsx
 import { cpus } from 'node:os'
 import * as path from 'node:path'
-import { existsSync, readdirSync } from 'node:fs'
+import { existsSync } from 'node:fs'
 import { rimrafSync } from 'rimraf'
 import { execa } from 'execa'
 import { chunk } from 'lodash-es'
 import { targets } from './utils'
 
-main()
+import { parseArgs } from 'node:util'
+
+const commandOpts = parseArgs({
+  options: {
+    type: {
+      type: 'boolean',
+      short: 't',
+      default: false
+    },
+  },
+})
 
 async function main() {
   const cores = cpus().length
@@ -25,7 +35,7 @@ async function build(target: string) {
     'rollup',
     [
       '-c',
-      'rollup.pkg.config.ts',
+      commandOpts.values.type ? 'rollup.dts.config.ts' : 'rollup.pkg.config.ts',
       '--configPlugin',
       'swc3',
       '--environment',
@@ -34,3 +44,5 @@ async function build(target: string) {
   )
   console.log(stdout)
 }
+
+main()

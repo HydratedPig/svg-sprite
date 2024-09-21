@@ -8,7 +8,7 @@ import {
 const packageSrcPath = resolve(fileURLToPath(import.meta.url), '.')
 
 export default defineNuxtModule({
-  setup(options, nuxt) {
+  setup(_, nuxt) {
     nuxt.hook('ready', () => {
       const nitro = useNitro()
       nitro.options.plugins = nitro.options.plugins || []

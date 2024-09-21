@@ -7,7 +7,7 @@
   "license": "MIT",
   "keywords": [],
   "main": "./dist/index.cjs",
-  "module": "./src/index.mjs",
+  "module": "./dist/index.mjs",
   "types": "./src/index.ts",
   "publishConfig": {
     "types": "./dist/index.d.ts",
@@ -17,7 +17,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@iconify/tools": "^4.0.4",
-    "svg-baker": "^1.7.0"
+    "@iconify/tools": "^4.0.4"
   }
 }
