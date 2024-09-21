@@ -1,20 +1,19 @@
 #!/usr/bin/env pnpm tsx
+import { existsSync } from 'node:fs'
 import { cpus } from 'node:os'
 import * as path from 'node:path'
-import { existsSync } from 'node:fs'
-import { rimrafSync } from 'rimraf'
-import { execa } from 'execa'
-import { chunk } from 'lodash-es'
-import { targets } from './utils'
-
 import { parseArgs } from 'node:util'
+import { chunk } from 'lodash-es'
+import { execa } from 'execa'
+import { rimrafSync } from 'rimraf'
+import { targets } from './utils'
 
 const commandOpts = parseArgs({
   options: {
     type: {
       type: 'boolean',
       short: 't',
-      default: false
+      default: false,
     },
   },
 })
