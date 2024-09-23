@@ -1,7 +1,11 @@
 /// <reference types="nitropack" />
-import type { H3Event } from 'h3'
-import type { NuxtIslandContext, NuxtIslandResponse, NuxtRenderHTMLContext } from 'nuxt/dist/core/runtime/nitro/renderer'
 
+import type { H3Event } from 'h3'
+import type { NuxtIslandContext, NuxtIslandResponse, NuxtRenderHTMLContext } from './nitro-types'
+
+declare module '@nuxt/renderer' {
+  type NuxtRenderHTMLContext = any
+}
 // Note: Keep in sync with nuxt/dist/index.mjs
 declare module 'nitropack' {
   interface NitroRuntimeHooks {

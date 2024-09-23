@@ -1,0 +1,25 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "composite": false,
+    "types": [
+      "node"
+    ],
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "outDir": "temp",
+    "stripInternal": true
+  },
+  "include": [
+    "packages/core/src",
+    "packages/vue/src",
+    "packages/nuxt/src",
+    "packages/webpack-vue-loader/src"
+  ],
+  "exclude": [
+    "packages/core/node_modules",
+    "packages/vue/node_modules",
+    "packages/nuxt/node_modules",
+    "packages/webpack-vue-loader/node_modules"
+  ]
+}

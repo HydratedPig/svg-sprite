@@ -8,9 +8,16 @@
       "DOM.Iterable"
     ],
     "useDefineForClassFields": true,
+    "baseUrl": ".",
+    "rootDir": ".",
     "module": "ESNext",
     /* Bundler mode */
     "moduleResolution": "Bundler",
+    "paths": {
+      "@svg-sprite/*": [
+        "packages/*/src"
+      ]
+    },
     "resolveJsonModule": true,
     // "allowImportingTsExtensions": true,
     "strict": true,
@@ -22,14 +29,17 @@
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noEmit": true,
-    // "allowSyntheticDefaultImports": true,
+    "noEmit": false,
+    "removeComments": false,
+    "allowSyntheticDefaultImports": true,
     "isolatedModules": true,
     "skipLibCheck": true
   },
   "include": [
-    "examples/**/*",
     "scripts/**/*",
     "packages/**/*"
+  ],
+  "exclude": [
+    "node_modules"
   ]
 }

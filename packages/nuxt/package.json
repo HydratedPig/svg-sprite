@@ -8,11 +8,13 @@
   "keywords": [],
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
     }
   },
-  "main": "dist/index.mjs",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -21,7 +23,8 @@
     "nuxt": "^3.12.4"
   },
   "dependencies": {
-    "@nuxt/kit": "^3.12.4"
+    "@nuxt/kit": "^3.12.4",
+    "@nuxt/schema": "3.12.4"
   },
   "devDependencies": {
     "h3": "^1.11.1",

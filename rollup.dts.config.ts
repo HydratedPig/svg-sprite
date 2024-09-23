@@ -20,7 +20,7 @@ const resolve = p => path.resolve(packageDir, p)
 
 const runtimeDir = resolve('src/runtime')
 
-const plugins = [dts({ respectExternal: true })]
+const plugins = [dts({ tsconfig: 'tsconfig.build.json' })]
 
 function getFilesByDir(dir: string) {
   return (existsSync(dir) ? readdirSync(dir, { recursive: true }) : []).map((i) => {
@@ -44,11 +44,11 @@ function getDistDir(dir: string = 'dist'): OutputOptions[] {
 }
 
 export default defineConfig([
-  {
-    input: resolve('src/index.ts'),
-    output: getDistDir(),
-    plugins,
-  },
+  // {
+  //   input: resolve('src/index.ts'),
+  //   output: getDistDir(),
+  //   plugins,
+  // },
   ...getFilesByDir(runtimeDir).map((i) => {
     return {
       input: i.path,
@@ -57,9 +57,10 @@ export default defineConfig([
       plugins,
       onwarn(warning, warn) {
         // during dts rollup, everything is externalized by default
+        console.log('warning', warning)
         if (
-          warning.code === 'UNRESOLVED_IMPORT' &&
-          !warning.exporter?.startsWith('.')
+          warning.code === 'UNRESOLVED_IMPORT'
+          && !warning.exporter?.startsWith('.')
         ) {
           return
         }

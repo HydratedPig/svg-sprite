@@ -1,5 +1,5 @@
-import type { NuxtRenderHTMLContext } from 'nuxt/dist/core/runtime/nitro/renderer'
 import type { NitroApp } from 'nitropack'
+import type { NuxtRenderHTMLContext } from '../nitro-types'
 
 export default function (nitro: NitroApp) {
   nitro.hooks.hook('render:html', (htmlContext: NuxtRenderHTMLContext) => {
