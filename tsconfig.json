@@ -33,13 +33,14 @@
     "removeComments": false,
     "allowSyntheticDefaultImports": true,
     "isolatedModules": true,
-    "skipLibCheck": true
+    "skipLibCheck": false
   },
   "include": [
     "scripts/**/*",
     "packages/**/*"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "packages/*/runtime/**/*"
   ]
 }

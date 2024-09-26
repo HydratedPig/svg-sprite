@@ -44,15 +44,15 @@ function getDistDir(dir: string = 'dist'): OutputOptions[] {
 }
 
 export default defineConfig([
-  // {
-  //   input: resolve('src/index.ts'),
-  //   output: getDistDir(),
-  //   plugins,
-  // },
+  {
+    input: resolve('src/index.ts'),
+    output: getDistDir(),
+    plugins,
+  },
   ...getFilesByDir(runtimeDir).map((i) => {
     return {
       input: i.path,
-      output: getDistDir('dist/runtime'),
+      output: getDistDir('runtime'),
       external: [/.*/],
       plugins,
       onwarn(warning, warn) {

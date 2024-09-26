@@ -1,7 +1,7 @@
 import { parse } from 'node:path'
 import { createUnplugin } from 'unplugin'
 import { createFilter } from '@rollup/pluginutils'
-import { SpriteCompiler, VirtualFilename, VirtualPrefix, forceCamelCase2hyphenate, spriteFolderPath } from '@svg-sprite/core'
+import { SpriteCompiler, VirtualFilename, VirtualPrefix, forceCamelCase2hyphenate, spriteFolderPath, spriteResourceQuery } from '@svg-sprite/core'
 import type { ISvgSpriteVueOptions } from './type'
 import { getSvgTemp, getTeleportTemp } from './constant'
 
@@ -9,6 +9,10 @@ export function createSpriteFilter(options: ISvgSpriteVueOptions = {}) {
   const { include = spriteFolderPath, exclude } = options
   const filter = createFilter(include, exclude)
   return filter
+}
+
+export function spriteResourceFilter(resource: string) {
+  return !resource.includes(spriteResourceQuery)
 }
 
 export const unplugin = createUnplugin<ISvgSpriteVueOptions | undefined>((options = {}) => {
@@ -57,6 +61,7 @@ export default unplugin
 
 export {
   spriteFolderPath,
+  spriteResourceQuery,
 }
 
 export const vitePlugin = unplugin.vite

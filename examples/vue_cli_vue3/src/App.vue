@@ -1,8 +1,10 @@
-<script setup>
+<script setup lang="ts">
 import SvgSpriteContainer from '@svg-sprite/vue/runtime/SvgSpriteContainer'
-import Left from './assets/sprite/left.svg'
-import Right from './assets/sprite/right.svg'
-import Right2 from './assets/sprite/duplicate/right.svg'
+import Left from './assets/sprite/left.svg?sprite=true'
+import LeftStr from './assets/sprite/left.svg'
+import Right from './assets/sprite/right.svg?sprite=true'
+import Right2 from './assets/sprite/duplicate/right.svg?sprite=true'
+import Right2Str from './assets/sprite/duplicate/right.svg'
 
 console.log('leftSvg::', Left, 'rightSvg::', Right)
 </script>
@@ -12,6 +14,10 @@ console.log('leftSvg::', Left, 'rightSvg::', Right)
   <Left :size="24" />
   <Right />
   <Right2 />
+  <div>
+    Left: {{ LeftStr }} <br/>
+    Right: {{ Right2Str }}
+  </div>
 </template>
 
 <style>

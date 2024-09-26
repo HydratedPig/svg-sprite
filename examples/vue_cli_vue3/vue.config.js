@@ -1,4 +1,4 @@
-const { webpackPlugin, createSpriteFilter } = require('@svg-sprite/vue')
+const { webpackPlugin, spriteResourceFilter } = require('@svg-sprite/vue')
 const { defineConfig } = require('@vue/cli-service')
 
 const svgSpriteOptions = {
@@ -13,7 +13,6 @@ module.exports = defineConfig({
   },
   chainWebpack: (config) => {
     const svgRule = config.module.rule('svg')
-    const filter = createSpriteFilter(svgSpriteOptions)
-    svgRule.exclude.add(filter)
+    svgRule.set('resourceQuery', spriteResourceFilter)
   },
 })

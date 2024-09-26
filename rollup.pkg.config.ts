@@ -63,7 +63,7 @@ export default defineConfig([
   ...getFilesByDir(runtimeDir).map((i) => {
     return {
       input: i.path,
-      output: getDistDir('dist/runtime'),
+      output: getDistDir('runtime'),
       external: [/.*/],
       plugins,
     } as RollupOptions
